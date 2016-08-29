@@ -84,6 +84,12 @@ public class Maze3d {
 	public Position getGoalPosition() {
 		return goal;
 	}
+	/**
+	 * This method is used to get possible ways from a Position
+	 * @param p This is the Position wanted
+	 * @return ArrayList<Position> This returns a list
+	 * of the nearby free Positions
+	 */
 	public ArrayList<Position> getPossibleMoves(Position p){
 		ArrayList<Position> possible_moves = new ArrayList<Position>();
 		int level = p.getLevel();
@@ -111,6 +117,12 @@ public class Maze3d {
 		
 		return possible_moves;
 	}
+	/**
+	 * This method is use to get 2d int of specific column
+	 * @param x This is the column (x dimension)
+	 * @return int[][] This returns 2d int
+	 * of the levels and rows of a column
+	 */
 	public int[][] getCrossSectionByX(int x){
 		if(x < columns && x >= 0){
 			int[][] maze2d = new int[levels][rows];
@@ -126,6 +138,12 @@ public class Maze3d {
 			throw(new IndexOutOfBoundsException("Value is not in bounds"));
 		}
 	}
+	/**
+	 * This method is use to get 2d int of specific row
+	 * @param y This is the row (y dimension)
+	 * @return int[][] This returns 2d int
+	 * of the levels and columns of a row
+	 */
 	public int[][] getCrossSectionByY(int y){
 		if(y < rows && y >= 0){
 			int[][] maze2d = new int[levels][columns];
@@ -141,6 +159,12 @@ public class Maze3d {
 			throw(new IndexOutOfBoundsException("Value is not in bounds"));
 		}
 	}
+	/**
+	 * This method is use to get 2d int of specific level
+	 * @param z This is the level (z dimension)
+	 * @return int[][] This returns 2d int
+	 * of the rows and columns of a level
+	 */
 	public int[][] getCrossSectionByZ(int z){
 		if(z < levels && z >= 0){
 			int[][] maze2d = new int[rows][columns];
@@ -164,25 +188,61 @@ public class Maze3d {
 	public void setGoalPosition(Position goalPosition) {
 		this.goal = goalPosition;
 	}
+	/**
+	 * This set the value of WALL in 1 point in the maze
+	 * @param level This is the level wanted
+	 * @param row This is the row wanted
+	 * @param col This is the col wanted
+	 */
 	public void setWall(int level, int row, int col){
 		this.maze3d[level][row][col] = WALL;
 	}
+	/**
+	 * This method set the value WALL in 1 Position in the maze
+	 * @param pos This is the Position wanted
+	 */
 	public void setWall(Position pos){
 		this.maze3d[pos.getLevel()][pos.getRow()][pos.getColm()] = WALL;
 	}
+	/**
+	 * This method set the value FREE in 1 point in the maze
+	 * @param level This is the level wanted
+	 * @param row This is the row wanted
+	 * @param col This is the col wanted
+	 */
 	public void setFree(int level, int row, int col){
 		this.maze3d[level][row][col] = FREE;
 	}
+	/**
+	 * This method set the value FREE in 1 Position in the maze
+	 * @param pos This is the Position wanted
+	 */
 	public void setFree(Position pos){
 		this.maze3d[pos.getLevel()][pos.getRow()][pos.getColm()] = FREE;
 	}
 	public void setMaze3d(int[][][] maze3d) {
 		this.maze3d = maze3d;
 	}
+	/**
+	 * This method set the wanted value in 1 point in the maze
+	 * @param level This is the wanted level
+	 * @param row This is the wanted row
+	 * @param col This is the wanted column
+	 * @param value This is the wanted value
+	 */
 	public void setValue(int level, int row, int col, int value){
 		this.maze3d[level][row][col] = value;
 	}
 	
+	/**
+	 * This method returns bytes list of the maze properties and structure
+	 * Order of the list:
+	 * levels, rows, columns,
+	 * start level, start row, start column,
+	 * end level, end row, end column
+	 * than the value of [0][0][0], [0][0][1] ... [levels][rows][columns]
+	 * @return byte[] This returns the list of data of the maze
+	 */
 	public byte[] toByteArray(){
 		byte[] array = new byte[(3*3)+(levels*rows*columns)];
 		array[0] = (byte) levels;
