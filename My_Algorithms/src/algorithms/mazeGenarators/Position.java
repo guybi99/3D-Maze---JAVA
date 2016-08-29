@@ -10,7 +10,6 @@ public class Position {
 		this.level = level;
 		this.colm = colm;
 	}
-	
 	public Position(Position pos) {
 		this.row = pos.getRow();
 		this.level = pos.getLevel();

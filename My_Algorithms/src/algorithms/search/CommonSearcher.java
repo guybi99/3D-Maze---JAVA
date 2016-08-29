@@ -10,6 +10,11 @@ public abstract class CommonSearcher<T> implements Searcher<T>{
 		return evaluatedNodes;
 	}
 	
+	/**
+	* This method is used to build the Solution object
+	* @param goalState This is the final state.
+	* @return Solution<T> This returns Solution object with list of states from start to end.
+	*/
 	protected Solution<T> backTrace(State<T> goalState) {
 		Solution<T> sol = new Solution<T>();
 		State<T> currState = goalState;
