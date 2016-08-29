@@ -24,6 +24,9 @@ public abstract class CommonSearcher<T> implements Searcher<T>{
 			states.add(0, currState);
 			currState = currState.getCameFrom();
 		}
+		
+		sol.setStates(states);
+		
 		return sol;
 	}
 
