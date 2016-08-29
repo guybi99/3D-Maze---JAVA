@@ -10,6 +10,10 @@ public class Solution<T> {
 		return states;
 	}
 
+	/**
+	 * This method sets the state list
+	 * @param states This is the states list
+	 */
 	public void setStates(List<State<T>> states) {
 		this.states = states;
 	}

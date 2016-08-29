@@ -8,6 +8,9 @@ public class SimpleMaze3dGenerator extends Maze3dAlgorithms{
 	
 	private Maze3d maze3d;
 	
+	/**
+	 * This method sets random walls in the maze in every point in the maze
+	 */
 	private void randomWalls(){
 		// Random 0,1 and set for every pos
 		
@@ -17,6 +20,10 @@ public class SimpleMaze3dGenerator extends Maze3dAlgorithms{
 					maze3d.setValue(level, row, colm, rand.nextInt(2));
 	}
 	
+	/**
+	 * This method sets walls in the maze in all the border
+	 * to ensure the maze will have frame
+	 */
 	public void buildFrame(){
 		for (int level = 0; level < maze3d.getLevels(); level++)
 			for(int row = 0; row < maze3d.getRows(); row++){
@@ -37,7 +44,12 @@ public class SimpleMaze3dGenerator extends Maze3dAlgorithms{
 			}
 	}
 	
-	public Position getStartEndPositon(){
+	/**
+	 * This method returns random position in the maze
+	 * in order to set start and end position
+	 * @return Position This returns random position in the maze
+	 */
+	public Position randomStartEndPositon(){
 		// Random column not in frame (+1)
 		int column = rand.nextInt(maze3d.getColumns()-2);
 		column++;
@@ -53,6 +65,12 @@ public class SimpleMaze3dGenerator extends Maze3dAlgorithms{
 		return new Position(level, row, column);
 	}
 	
+	/**
+	 * This method sets free spaces from start to end
+	 * to ensure a possible way out
+	 * @param start This is the start Position of the maze
+	 * @param end This is the end Position of the maze
+	 */
 	public void createPath(Position start, Position end){
 		int level = start.getLevel();
 		int row = start.getRow();
@@ -104,12 +122,12 @@ public class SimpleMaze3dGenerator extends Maze3dAlgorithms{
 		randomWalls(); // Put 0|1 on each pos
 		buildFrame(); // Frame is wall
 		
-		Position startPos = getStartEndPositon();
+		Position startPos = randomStartEndPositon();
 		Position endPos = startPos;
 		
 		// Assure start is not end
 		while(startPos == endPos)
-			endPos = getStartEndPositon();
+			endPos = randomStartEndPositon();
 		
 		maze3d.setStartPosition(startPos);
 		maze3d.setGoalPosition(endPos);
