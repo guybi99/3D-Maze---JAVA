@@ -13,6 +13,13 @@ public class DFS<T> extends CommonSearcher<T> {
 		return RecursiveDFS(s, startState);
 	}
 	
+	/**
+	 * This method recursively search the end of Searchable object
+	 * from the start of the object
+	 * @param s This is the Searchable object
+	 * @param currentState This is the current state running on
+	 * @return Solution<T> This returns the Solution of the Searchable object
+	 */
 	public Solution<T> RecursiveDFS(Searchable<T> s, State<T> currentState){
 		closedList.add(currentState);
 		
@@ -35,6 +42,11 @@ public class DFS<T> extends CommonSearcher<T> {
 		return null;
 	}
 	
+	/**
+	 * This method check if a specific state is in the closed list
+	 * @param state This is the state
+	 * @return Boolean This returns true if state in closed list
+	 */
 	public boolean ArrayContains(State<T> state){
         for(int i=0; i < closedList.size(); i++){
             if(closedList.get(i).equals(state))

@@ -13,6 +13,10 @@ public class GrowingTreeGenerator extends Maze3dAlgorithms {
 	Position goalPosition;
 	private CellChoice cell_choice = new RandomCell();
 	
+	/**
+	 * This method gets a random position in the maze
+	 * @return Position This returns the random position
+	 */
 	private Position chooseRandomPosition() {
 		// Get random column, row and level to get a space position
 		int column = rand.nextInt(maze3d.getColumns());
@@ -57,6 +61,10 @@ public class GrowingTreeGenerator extends Maze3dAlgorithms {
 		return maze3d;
 	}
 	
+	/**
+	 * This method recursively gets position and break random nearby wall
+	 * @param currPos The current position
+	 */
 	private void GrowingTree(Position currPos) {
 		Position newPos;
 
@@ -129,6 +137,11 @@ public class GrowingTreeGenerator extends Maze3dAlgorithms {
 		GrowingTree(newPos);
 	}
 	
+	/**
+	 * This method returns a list of possible directions to go through from Position
+	 * @param currPos This is the position
+	 * @return ArrayList<Direction> This returns a possible Directions list
+	 */
 	private ArrayList<Direction> getPossibleDirections(Position currPos) {
 		ArrayList<Direction> directions = new ArrayList<Direction>();
 		
