@@ -15,10 +15,20 @@ public class Maze3d {
 	public final int FREE = 0;
 	public final int WALL = 1;
 
+	/**
+	 * Constructor
+	 * @param maze3d int[][][] 3d integer array
+	 */
 	public Maze3d(int[][][] maze3d) {
 		super();
 		this.maze3d = maze3d;
 	}
+	/**
+	 * Constructor
+	 * @param level int This is the maze level number
+	 * @param row int This is the maze row number
+	 * @param col int This is the maze column number
+	 */
 	public Maze3d(int level, int row, int col) {
 		super();
 		levels = level;
@@ -63,15 +73,31 @@ public class Maze3d {
 		}
 	}
 	
+	/**
+	 * This method is to get Maze3d object
+	 * @return int[][][] This returns the maze3d object
+	 */
 	public int[][][] getMaze3d() {
 		return maze3d;
 	}
+	/**
+	 * This method returns level number
+	 * @return int levels number
+	 */
 	public int getLevels() {
 		return levels;
 	}
+	/**
+	 * This method returns row number
+	 * @return int rows number
+	 */
 	public int getRows() {
 		return rows;
 	}
+	/**
+	 * This method returns column number
+	 * @return int columns number
+	 */
 	public int getColumns() {
 		return columns;
 	}
@@ -85,9 +111,17 @@ public class Maze3d {
 	public int getValue(int level, int row, int col){
 		return this.maze3d[level][row][col];
 	}
+	/**
+	 * This method returns maze start position
+	 * @return Position This returns start position
+	 */
 	public Position getStartPosition() {
 		return start;
 	}
+	/**
+	 * This method returns maze goal position
+	 * @return Position This returns goal position
+	 */
 	public Position getGoalPosition() {
 		return goal;
 	}
@@ -188,10 +222,18 @@ public class Maze3d {
 		}
 	}
 	
+	/**
+	 * This method sets maze start position
+	 * @param Position This is the start position
+	 */
 	public void setStartPosition(Position startPosition) {
 		this.start = startPosition;
 		this.setFree(startPosition);
 	}
+	/**
+	 * This method sets maze goal position
+	 * @param Position This is the goal position
+	 */
 	public void setGoalPosition(Position goalPosition) {
 		this.goal = goalPosition;
 	}
@@ -227,6 +269,10 @@ public class Maze3d {
 	public void setFree(Position pos){
 		this.maze3d[pos.getLevel()][pos.getRow()][pos.getColm()] = FREE;
 	}
+	/**
+	 * This sets the maze object
+	 * @param maze3d int[][][] This is the maze array
+	 */
 	public void setMaze3d(int[][][] maze3d) {
 		this.maze3d = maze3d;
 	}

@@ -7,16 +7,15 @@ public class MyDecompressorInputStream extends InputStream{
 	
 	InputStream in;
 	
+	/**
+	 * Constructor
+	 * @param in InputStream This is the input stream to read from
+	 */
 	public MyDecompressorInputStream(InputStream in) {
 		super();
 		this.in = in;
 	}
 
-	/**
-	 * this method is read from the file array of bytes and bring us what he read
-	 * @param b is the array we want to read
-	 * @return int
-	 */
 	@Override
 	public int read(byte[] b) throws IOException
 	{
@@ -40,11 +39,7 @@ public class MyDecompressorInputStream extends InputStream{
 		
 		return 1;
 	}
-	
-	/**
-	 * this method is read from the file and bring us what he get
-	 * @return int
-	 */
+
 	@Override
 	public int read() throws IOException 
 	{		

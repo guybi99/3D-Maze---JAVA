@@ -7,6 +7,10 @@ public class MyCompressorOutputStream extends OutputStream {
 
 	private OutputStream out;
 	
+	/**
+	 * Constructor
+	 * @param out OutputStream This is the output stream to write to
+	 */
 	public MyCompressorOutputStream(OutputStream out) {
 		super();
 		this.out = out;

@@ -9,12 +9,24 @@ import algorithms.mazeGenarators.*;
 public class SearchableAdapter implements Searchable<Position> {
 	private Maze3d m3d;
 	
+	/**
+	 * This method returns the maze3d object
+	 * @return Maze3d this returns the Maze3d object
+	 */
 	public Maze3d getM3d() {
 		return m3d;
 	}
+	/**
+	 * This method sets the Maze3d object
+	 * @param m3d This is the Maze3d object
+	 */
 	public void setM3d(Maze3d m3d) {
 		this.m3d = m3d;
 	}
+	/**
+	 * Constructor
+	 * @param m3d Maze3d This is the Maze3d object
+	 */
 	public SearchableAdapter(Maze3d m3d)
 	{
 		this.m3d = m3d;

@@ -6,6 +6,10 @@ import java.util.List;
 public class Solution<T> {
 	private List<State<T>> states = new ArrayList<State<T>>();
 
+	/**
+	 * States getter
+	 * @return List This returns the states list
+	 */
 	public List<State<T>> getStates() {
 		return states;
 	}
