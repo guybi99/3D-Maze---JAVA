@@ -12,7 +12,7 @@ public interface View {
 	void printResults(int[][] cross);
 	/**
 	 * Print String
-	 * @param cross String This is the String
+	 * @param str String This is the String
 	 */
 	void printResults(String str);
 	/**

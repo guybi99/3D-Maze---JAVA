@@ -20,7 +20,7 @@ public class MyView implements View {
 	 * Constructor
 	 * @param in BufferedReader The object to read input from
 	 * @param out PrintWriter The object to write output to
-	 * @param hms HashMap The String Command hash map
+	 * @param hm HashMap The String Command hash map
 	 */
 	public MyView(BufferedReader in, PrintWriter out, HashMap<String,Command> hm) {
 		super();
