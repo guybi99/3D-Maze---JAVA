@@ -31,7 +31,7 @@ public class CLI{
 				int i = 0;
 				
 				do{
-					System.out.println("Enter The commnad you want and its parameters (separated with spaces)");
+					System.out.println("\nEnter The commnad you want and its parameters (separated with spaces)");
 					System.out.println("1) Dir: dir <path>");//2
 					System.out.println("2) Generate3DMaze: generate_3d_maze <name> <levels> <rows> <columns> <Simple/Growing>");//6
 					System.out.println("3) Display: display <name>");//2
@@ -41,6 +41,18 @@ public class CLI{
 					System.out.println("7) Solve: solve <name> <BFS/DFS>");//3
 					System.out.println("8) DisplaySolution: display_solution <name>");//2
 					System.out.println("9) Exit: Bye!");//1
+					
+//					dir c:\
+//					generate_3d_maze tal 10 10 10 Growing
+//					generate_3d_maze tal2 10 10 10 Simple
+//					display tal
+//					display_cross_section x 6 tal
+//					save_maze tal c:\tal_maze
+//					load_maze c:\tal_maze tal
+//					solve tal BFS
+//					solve tal2 DFS
+//					display_solution tal
+//					display_solution tal2
 					
 					try{
 						s= new Scanner(in.readLine());
