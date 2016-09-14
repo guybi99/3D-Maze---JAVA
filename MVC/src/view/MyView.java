@@ -29,5 +29,17 @@ public class MyView implements View {
 	public void start() {
 		cli.start();
 	}
-
+	
+	public void printResults(String str) {
+		System.out.println("- "+str);
+	}
+	
+	public void printResults(int[][] cross){
+		for( int[] x : cross){
+			for( int y : x)
+				System.out.print(y+" ");
+			
+			System.out.println();
+		}
+	}
 }

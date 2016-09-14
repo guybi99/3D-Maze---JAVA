@@ -24,7 +24,19 @@ public class MyController implements Controller {
 		this.mm = mm;
 		this.hm = hm;
 	}
-	
-	
+	@Override
+	public void viewResults(String[] arr) {
+		for(String a : arr)
+			mv.printResults(a);
+	}
+	@Override
+	public void viewResults(String str) {
+		mv.printResults(str);
+	}
+
+	@Override
+	public void viewResults(int[][] cross) {
+		mv.printResults(cross);
+	}
 	
 }
