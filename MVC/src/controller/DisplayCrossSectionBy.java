@@ -12,7 +12,7 @@ public class DisplayCrossSectionBy implements Command {
 
 	@Override
 	public void doCommand(String[] st) {
-		m.getCrossBY(st[3], Integer.parseInt(st[1]), st[2].charAt(0));
+		m.getCrossBY(st[3], Integer.parseInt(st[2]), st[1].charAt(0));
 	}
 
 }
