@@ -12,12 +12,12 @@ public interface Controller {
 	void viewResults(int[][] cross);
 	/**
 	 * View results for String
-	 * @param cross String The String to view
+	 * @param str String The String to view
 	 */
 	void viewResults(String str);
 	/**
 	 * View results for String array
-	 * @param cross String[] The String array
+	 * @param arr String[] The String array
 	 */
 	void viewResults(String[] arr);
 }

@@ -19,7 +19,7 @@ public class State<T> implements Comparable<State<T>> {
 	}
 	/**
 	 * Constructor
-	 * @param object State<T> This is the State object
+	 * @param object State This is the State object
 	 */
 	public State(State<T> object){
 		this.key = object.getKey();

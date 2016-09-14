@@ -132,7 +132,7 @@ public class Maze3d {
 	/**
 	 * This method is used to get possible ways from a Position
 	 * @param p This is the Position wanted
-	 * @return ArrayList<Position> This returns a list
+	 * @return ArrayList This returns a list
 	 * of the nearby free Positions
 	 */
 	public ArrayList<Position> getPossibleMoves(Position p){
@@ -228,7 +228,7 @@ public class Maze3d {
 	
 	/**
 	 * This method sets maze start position
-	 * @param Position This is the start position
+	 * @param startPosition Position This is the start position
 	 */
 	public void setStartPosition(Position startPosition) {
 		this.start = startPosition;
@@ -236,7 +236,7 @@ public class Maze3d {
 	}
 	/**
 	 * This method sets maze goal position
-	 * @param Position This is the goal position
+	 * @param goalPosition Position This is the goal position
 	 */
 	public void setGoalPosition(Position goalPosition) {
 		this.goal = goalPosition;

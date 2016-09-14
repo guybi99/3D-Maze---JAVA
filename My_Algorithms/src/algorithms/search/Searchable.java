@@ -9,18 +9,18 @@ import java.util.List;
 public interface Searchable<T> {
 	/**
 	 * This method is used to get searchable start
-	 * @return State<T> The start of searchable object
+	 * @return State The start of searchable object
 	 */
 	State<T> getStartState();
 	/**
 	 * This method is used to get searchable goal
-	 * @return State<T> The goal of searchable object
+	 * @return State The goal of searchable object
 	 */
 	State<T> getGoalState();
 	/**
 	 * This method returns possible states list of nearby wanted state
 	 * @param s This is the wanted state
-	 * @return List<State<T>> This returns possible states list of nearby states
+	 * @return List This returns possible states list of nearby states
 	 */
 	List<State<T>> getAllPossibleStates(State<T> s);
 	/**

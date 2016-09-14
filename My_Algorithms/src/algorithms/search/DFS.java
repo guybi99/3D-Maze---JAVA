@@ -22,7 +22,7 @@ public class DFS<T> extends CommonSearcher<T> {
 	 * from the start of the object
 	 * @param s This is the Searchable object
 	 * @param currentState This is the current state running on
-	 * @return Solution<T> This returns the Solution of the Searchable object
+	 * @return Solution This returns the Solution of the Searchable object
 	 */
 	public Solution<T> RecursiveDFS(Searchable<T> s, State<T> currentState){
 		closedList.add(currentState);

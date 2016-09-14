@@ -61,14 +61,14 @@ public class Position {
 	}
 	/**
 	 * This sets row index
-	 * @param level int This is the row index
+	 * @param row int This is the row index
 	 */
 	public void setRow(int row) {
 		this.row = row;
 	}
 	/**
 	 * This sets column index
-	 * @param level int This is the column index
+	 * @param colm int This is the column index
 	 */
 	public void setColm(int colm) {
 		this.colm = colm;
