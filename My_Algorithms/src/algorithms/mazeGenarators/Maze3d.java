@@ -4,6 +4,10 @@ import algorithms.mazeGenarators.Position;
 
 import java.util.ArrayList;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class Maze3d {
 	private int[][][] maze3d;
 	private int levels;

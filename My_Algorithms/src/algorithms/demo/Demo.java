@@ -5,6 +5,10 @@ import algorithms.mazeGenarators.Maze3dGenerator;
 import algorithms.mazeGenarators.Position;
 import algorithms.search.*;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class Demo {
 	private static void run(Maze3dGenerator mg)
 	{

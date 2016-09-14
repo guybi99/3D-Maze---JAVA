@@ -1,5 +1,9 @@
 package algorithms.search;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class State<T> implements Comparable<State<T>> {
 	private State<T> cameFrom;
 	private double cost;

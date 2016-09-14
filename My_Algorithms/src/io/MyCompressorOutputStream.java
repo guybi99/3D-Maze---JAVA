@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class MyCompressorOutputStream extends OutputStream {
 
 	private OutputStream out;

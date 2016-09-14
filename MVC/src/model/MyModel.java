@@ -2,26 +2,22 @@ package model;
 
 import io.MyCompressorOutputStream;
 import io.MyDecompressorInputStream;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
-
-import controller.Command;
 import controller.Controller;
 import algorithms.demo.SearchableAdapter;
 import algorithms.mazeGenarators.*;
-import algorithms.search.BFS;
-import algorithms.search.DFS;
-import algorithms.search.Searcher;
-import algorithms.search.Solution;
-import algorithms.search.State;
+import algorithms.search.*;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class MyModel implements Model{
 
 	Controller c;

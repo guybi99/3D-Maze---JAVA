@@ -3,6 +3,10 @@ package algorithms.search;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class Solution<T> {
 	private List<State<T>> states = new ArrayList<State<T>>();
 

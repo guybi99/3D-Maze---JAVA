@@ -3,6 +3,10 @@ package algorithms.mazeGenarators;
 import java.util.Random;
 import algorithms.mazeGenarators.Position;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class SimpleMaze3dGenerator extends Maze3dAlgorithms{
 	private Random rand = new Random();
 	

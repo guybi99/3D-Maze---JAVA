@@ -2,6 +2,10 @@ package algorithms.search;
 
 import java.util.List;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public interface Searchable<T> {
 	/**
 	 * This method is used to get searchable start

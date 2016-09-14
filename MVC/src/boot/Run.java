@@ -1,16 +1,18 @@
 package boot;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
-
 import model.MyModel;
 import view.MyView;
 import controller.*;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class Run {
 
 	public static void main(String[] args) throws IOException

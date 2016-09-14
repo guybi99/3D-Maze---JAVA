@@ -3,6 +3,10 @@ package strategy.choosecell;
 import algorithms.mazeGenarators.Position;
 import java.util.ArrayList;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public interface CellChoice {
 	/**
 	 * This method returns Position from Position list

@@ -1,5 +1,9 @@
 package algorithms.search;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public interface Searcher<T> {
     /**
      * This method gets a Searchable object and

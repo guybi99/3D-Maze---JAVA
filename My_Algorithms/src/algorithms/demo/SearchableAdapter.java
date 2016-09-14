@@ -6,6 +6,10 @@ import algorithms.search.Searchable;
 import algorithms.search.State;
 import algorithms.mazeGenarators.*;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class SearchableAdapter implements Searchable<Position> {
 	private Maze3d m3d;
 	

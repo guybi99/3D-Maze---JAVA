@@ -3,6 +3,10 @@ package controller;
 import java.io.File;
 import model.MyModel;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class Dir implements Command {
 
 	private MyModel m;

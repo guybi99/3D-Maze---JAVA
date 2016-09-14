@@ -12,6 +12,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Scanner;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class Run {
 
 	public static void main1(String a, String[] args) {

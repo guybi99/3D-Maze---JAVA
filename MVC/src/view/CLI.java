@@ -8,11 +8,21 @@ import java.util.Scanner;
 
 import controller.Command;
 
+/**
+ * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ *
+ */
 public class CLI{
 	private HashMap<String,Command> hm;
 	BufferedReader in;
 	PrintWriter out;
 	
+	/**
+	 * Constructor
+	 * @param in BufferedReader The object to read input from
+	 * @param out PrintWriter The object to write output to
+	 * @param hms HashMap The String Command hash map
+	 */
 	public CLI(BufferedReader in, PrintWriter out, HashMap<String,Command> hms) {
 		super();
 		this.in = in;
@@ -21,6 +31,9 @@ public class CLI{
 		this.hm.putAll(hms);
 	}
 	
+	/**
+	 * Start working
+	 */
 	public void start(){
 		new Thread(new Runnable(){
 			@Override
