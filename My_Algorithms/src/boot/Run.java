@@ -1,11 +1,20 @@
 package boot;
 
 import algorithms.mazeGenarators.*;
+import io.MyCompressorOutputStream;
+import io.MyDecompressorInputStream;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Scanner;
 
 public class Run {
 
-	public static void main(String a, String[] args) {
+	public static void main1(String a, String[] args) {
 		Scanner in = new Scanner(System.in);
 		
 		System.out.print("Levels of Maze= ");
@@ -40,4 +49,59 @@ public class Run {
 		System.out.println(my_maze3d.toString());
 	
 	}
+
+	public static void main(String[] args) {
+		Maze3dGenerator mg = new GrowingTreeGenerator();
+		Maze3d maze = mg.generate(10,10,10);
+		
+//		System.out.println(maze.toString());
+
+		OutputStream out = null;
+		
+		try {
+			out = new MyCompressorOutputStream( new FileOutputStream("1.maz") );
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			out.write(maze.toByteArray());
+			out.flush();
+			out.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		
+		MyDecompressorInputStream in = null;
+		try {
+			in = new MyDecompressorInputStream( new FileInputStream("1.maz") );
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		int size = 0;
+		
+		try {
+			size = in.getSize();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		byte b[] = new byte[size];
+		
+		try {
+			in.read(b);
+			in.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		Maze3d loaded=new Maze3d(b);
+//		System.out.println("----------------------------------------");
+//		System.out.println(loaded.toString());
+		System.out.println(loaded.equals(maze));
+
+	}
+
 }

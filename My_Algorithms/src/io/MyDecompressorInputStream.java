@@ -2,6 +2,7 @@ package io;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.ByteBuffer;
 
 public class MyDecompressorInputStream extends InputStream{
 	
@@ -14,6 +15,17 @@ public class MyDecompressorInputStream extends InputStream{
 	public MyDecompressorInputStream(InputStream in) {
 		super();
 		this.in = in;
+	}
+	
+	public int getSize() throws IOException{
+		byte[] b_size = new byte[4];
+		for(int j = 0 ; j < 4 ; j++){
+			b_size[j] = new Integer(in.read()).byteValue();
+		}
+		
+		int size = ByteBuffer.wrap(b_size).getInt();
+		
+		return size;
 	}
 
 	@Override

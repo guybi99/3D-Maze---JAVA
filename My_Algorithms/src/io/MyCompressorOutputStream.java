@@ -2,6 +2,7 @@ package io;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.ByteBuffer;
 
 public class MyCompressorOutputStream extends OutputStream {
 
@@ -20,6 +21,17 @@ public class MyCompressorOutputStream extends OutputStream {
 	public void write(byte[] byte_array){
 		int counter = 0;
 		byte last = 0;
+		
+		int size = byte_array.length;
+		byte[] array_size = ByteBuffer.allocate(4).putInt(size).array();
+		
+		for (byte a : array_size){
+			try {
+				out.write(a);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
 		
 		for (int i = 0; i < byte_array.length; i++){
 			if(byte_array[i] != last){
