@@ -74,7 +74,7 @@ public class CLI{
 					
 					i=0;
 					
-				}while(choice[0] != "exit");
+				}while(!choice[0].equals("exit"));
 			 
 			}
 		}).start();
