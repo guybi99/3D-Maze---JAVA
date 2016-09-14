@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import model.MyModel;
 
 /**
- * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
  *
  */
 public class SaveMaze implements Command {

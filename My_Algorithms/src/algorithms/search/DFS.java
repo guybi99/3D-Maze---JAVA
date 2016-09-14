@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
  *
  */
 public class DFS<T> extends CommonSearcher<T> {

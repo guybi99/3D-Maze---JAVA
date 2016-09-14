@@ -9,7 +9,7 @@ import java.util.Scanner;
 import controller.Command;
 
 /**
- * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
  *
  */
 public class CLI{

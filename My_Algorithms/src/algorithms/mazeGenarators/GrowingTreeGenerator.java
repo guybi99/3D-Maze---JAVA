@@ -7,7 +7,7 @@ import strategy.choosecell.RandomCell;
 import algorithms.mazeGenarators.Direction;
 
 /**
- * @author Tal Mishaan 203908652 & Guy Binyamin 200958098
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
  *
  */
 public class GrowingTreeGenerator extends Maze3dAlgorithms {
