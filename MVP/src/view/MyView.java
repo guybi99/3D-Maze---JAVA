@@ -46,13 +46,12 @@ public class MyView extends Observable implements View, Observer {
 	
 	@Override
 	public void start() {
-		// TODO Auto-generated method stub
 		cli.start();
 	}
 
 	@Override
 	public void display(String msg) {
-		out.println(msg);
+		out.print(msg+" ");
 		out.flush();		
 	}
 
