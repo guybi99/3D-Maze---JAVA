@@ -1,5 +1,7 @@
 package boot;
 
+import gui.MazeWindow;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -15,7 +17,8 @@ public class Run {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
 				
-		MyView view = new MyView(in, out);
+//		MyView view = new MyView(in, out);
+		MazeWindow view = new MazeWindow();
 		MyModel model = new MyModel();
 		
 		Presenter presenter = new Presenter(model, view);
