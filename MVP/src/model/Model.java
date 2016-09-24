@@ -66,4 +66,8 @@ public interface Model {
 	 * exit from the project
 	 */
 	public void exit();
+	void loadMap();
+	void saveMap();
+	String toString(int[][] arr);
+	String toString(String[] arr);
 }

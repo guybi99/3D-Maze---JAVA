@@ -3,6 +3,7 @@ package boot;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+
 import model.MyModel;
 import presenter.Presenter;
 import view.MyView;
@@ -23,5 +24,4 @@ public class Run {
 				
 		view.start();
 	}
-
 }
