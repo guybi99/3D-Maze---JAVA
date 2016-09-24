@@ -16,7 +16,7 @@ public class Run {
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		PrintWriter out = new PrintWriter(System.out);
-				
+
 //		MyView view = new MyView(in, out);
 		MazeWindow view = new MazeWindow();
 		MyModel model = new MyModel();
