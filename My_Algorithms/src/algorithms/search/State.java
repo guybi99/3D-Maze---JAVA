@@ -1,10 +1,13 @@
 package algorithms.search;
 
+import java.io.Serializable;
+
 /**
  * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
  *
  */
-public class State<T> implements Comparable<State<T>> {
+@SuppressWarnings("serial")
+public class State<T> implements Comparable<State<T>>, Serializable {
 	private State<T> cameFrom;
 	private double cost;
 	private T value;

@@ -2,13 +2,15 @@ package algorithms.mazeGenarators;
 
 import algorithms.mazeGenarators.Position;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
  *
  */
-public class Maze3d {
+@SuppressWarnings("serial")
+public class Maze3d implements Serializable{
 	private int[][][] maze3d;
 	private int levels;
 	private int rows;
@@ -26,6 +28,9 @@ public class Maze3d {
 	public Maze3d(int[][][] maze3d) {
 		super();
 		this.maze3d = maze3d;
+		levels = maze3d.length;
+		rows = maze3d[0].length;
+		columns = maze3d[0][0].length;
 	}
 	/**
 	 * Constructor
