@@ -15,6 +15,7 @@ public class xmlRun {
 			st.setGenerateMazeAlgorithm("Growing");
 			st.setSolveMazeAlgorithm("BFS");
 			st.setSolveMazeAlgorithm("1");
+			st.setIsGUI(1);
 			
 			write.writeObject(st);
 			write.flush();

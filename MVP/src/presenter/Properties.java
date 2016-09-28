@@ -7,7 +7,7 @@ public class Properties implements Serializable {
 	private int numOfThreads;
 	private String generateMazeAlgorithm;
 	private String solveMazeAlgorithm;
-	private String isGUI;
+	private int isGUI;
 	
 	public Properties() {
 	}
@@ -31,11 +31,11 @@ public class Properties implements Serializable {
 		this.solveMazeAlgorithm = solveMazeAlgorithm;
 	}
 
-	public String getIsGUI() {
+	public int getIsGUI() {
 		return isGUI;
 	}
 
-	public void setIsGUI(String isGUI) {
+	public void setIsGUI(int isGUI) {
 		this.isGUI = isGUI;
 	}
 }

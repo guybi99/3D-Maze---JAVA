@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.HashMap;
+
+import algorithms.mazeGenarators.Maze3d;
 import presenter.Command;
 import model.Model;
 import view.View;
@@ -21,6 +23,8 @@ public class CommandsManager {
 	public HashMap<String, Command> getCommandsMap() {
 		HashMap<String, Command> commands = new HashMap<String, Command>();
 		commands.put("maze_ready", new MazeReadyCommand());
+		commands.put("display_maze", new DisplayMazeCommand());
+		commands.put("get_algo", new GetAlgo());
 		commands.put("print", new Print());
 		commands.put("dir", new Dir());
 		commands.put("generate_3d_maze", new Generate3DMaze());
@@ -41,6 +45,24 @@ public class CommandsManager {
 			for(String a : args)
 				view.display(a);
 		}
+	}
+	
+	class GetAlgo implements Command {
+		@Override
+		public void doCommand(String[] args) {
+			view.setProperties(m.getProperties());
+		}
+	}
+	
+	class DisplayMazeCommand implements Command {
+
+		@Override
+		public void doCommand(String[] args) {
+			String name = args[0];
+			Maze3d maze = m.getMaze(name);
+//			System.out.println(maze.toString());
+			view.displayMaze(maze);
+		}		
 	}
 	
 	class MazeReadyCommand implements Command {

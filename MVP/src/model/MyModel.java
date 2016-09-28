@@ -64,18 +64,18 @@ public class MyModel extends Observable implements Model {
 					maze3d = mg.generate(levels, rows, cols);
 					maze_hm.put(name, maze3d);
 					setChanged();
-					notifyObservers("print "+name+" has been generated!");
+					if(prop.getIsGUI() == 0) notifyObservers("print "+name+" has been generated!");
 					break;
 				case "Growing":
 					mg = new GrowingTreeGenerator();
 					maze3d = mg.generate(levels, rows, cols);
 					maze_hm.put(name, maze3d);
 					setChanged();
-					notifyObservers("print "+name+" has been generated!");
+					if(prop.getIsGUI() == 0) notifyObservers("print "+name+" has been generated!");
 					break;
 				default:
 					setChanged();
-					notifyObservers("print "+"The algorithm " + algo + " does not exists");
+					if(prop.getIsGUI() == 0) notifyObservers("print "+"The algorithm " + algo + " does not exists");
 				}
 				
 				return maze3d;
@@ -83,6 +83,10 @@ public class MyModel extends Observable implements Model {
 			
 		});
 			
+	}
+	
+	public Properties getProperties() {
+		return prop;
 	}
 
 	@Override
@@ -96,12 +100,12 @@ public class MyModel extends Observable implements Model {
 		 {
 			 arr = dir.list();
 			 setChanged();
-			 notifyObservers("print "+toString(arr));
+			 if(prop.getIsGUI() == 0) notifyObservers("print "+toString(arr));
 		 }
 		 else
 		 {
 			 setChanged();
-			 notifyObservers("print "+"The path " + dir.getPath() + " does not exists");
+			 if(prop.getIsGUI() == 0) notifyObservers("print "+"The path " + dir.getPath() + " does not exists");
 		 }
 	}
 
@@ -123,17 +127,17 @@ public class MyModel extends Observable implements Model {
 					break;
 				default:
 					setChanged();
-					notifyObservers("print "+"The place " + place + " does not exists");
+					if(prop.getIsGUI() == 0) notifyObservers("print "+"The place " + place + " does not exists");
 				}
 				
 				setChanged();
-				notifyObservers("print "+toString(cross));
+				if(prop.getIsGUI() == 0) notifyObservers("print "+toString(cross));
 			}catch(IndexOutOfBoundsException e){
 				e.printStackTrace();
 			}
 		}else{
 			setChanged();
-			notifyObservers("print "+"Maze "+name+" doesn't exists!");
+			if(prop.getIsGUI() == 0) notifyObservers("print "+"Maze "+name+" doesn't exists!");
 		}
 	}
 
@@ -141,10 +145,10 @@ public class MyModel extends Observable implements Model {
 	public void display(String name) {
 		if(maze_hm.containsKey(name)){
 			setChanged();
-			notifyObservers("print "+maze_hm.get(name).toString());
+			if(prop.getIsGUI() == 0) notifyObservers("print "+maze_hm.get(name).toString());
 		}else{
 			setChanged();
-			notifyObservers("print "+"Maze "+name+" doesn't exists!");
+			if(prop.getIsGUI() == 0) notifyObservers("print "+"Maze "+name+" doesn't exists!");
 		}
 	}
 
@@ -162,7 +166,7 @@ public class MyModel extends Observable implements Model {
 			}
 		}else{
 			setChanged();
-			notifyObservers("print "+"Maze "+name+" doesn't exists!");
+			if(prop.getIsGUI() == 0) notifyObservers("print "+"Maze "+name+" doesn't exists!");
 		}
 		
 	}
@@ -197,7 +201,7 @@ public class MyModel extends Observable implements Model {
 		if(maze_hm.containsKey(name)){
 			if(sol_hm.containsKey(name)){
 				setChanged();
-				notifyObservers("print "+"Solution for "+name+" already exists!");
+				if(prop.getIsGUI() == 0) notifyObservers("print "+"Solution for "+name+" already exists!");
 			}else{
 				
 				executor.submit(new Callable<Solution<Position>>() {
@@ -216,16 +220,16 @@ public class MyModel extends Observable implements Model {
 							solution = bfs.search(sa);
 							sol_hm.put(name, solution);
 							setChanged();
-							notifyObservers("print "+"Solution for "+name+" is ready!");
+							if(prop.getIsGUI() == 0) notifyObservers("print "+"Solution for "+name+" is ready!");
 						}else if(algorithm.equals("DFS")){
 							Searcher<Position> dfs = new BFS<Position>();
 							solution = dfs.search(sa);
 							sol_hm.put(name, solution);
 							setChanged();
-							notifyObservers("print "+"Solution for "+name+" is ready!");
+							if(prop.getIsGUI() == 0) notifyObservers("print "+"Solution for "+name+" is ready!");
 						}else{
 							setChanged();
-							notifyObservers("print "+"Algorithm "+algo+" doesn't exists!");
+							if(prop.getIsGUI() == 0) notifyObservers("print "+"Algorithm "+algo+" doesn't exists!");
 						}
 						
 						return solution;
@@ -235,7 +239,7 @@ public class MyModel extends Observable implements Model {
 			}
 		}else{
 			setChanged();
-			notifyObservers("print "+"Maze "+name+" doesn't exists!");
+			if(prop.getIsGUI() == 0) notifyObservers("print "+"Maze "+name+" doesn't exists!");
 		}
 	}
 
@@ -245,11 +249,11 @@ public class MyModel extends Observable implements Model {
 			List<State<Position>> positions = sol_hm.get(name).getStates();
 			for( State<Position> pos : positions){
 				setChanged();
-				notifyObservers("print "+pos.getValue().toString());
+				if(prop.getIsGUI() == 0) notifyObservers("print "+pos.getValue().toString());
 			}
 		}else{
 			setChanged();
-			notifyObservers("print "+"Solution for "+name+" doesn't exists!");
+			if(prop.getIsGUI() == 0) notifyObservers("print "+"Solution for "+name+" doesn't exists!");
 		}
 	}
 
@@ -257,7 +261,7 @@ public class MyModel extends Observable implements Model {
 	public void exit() {
 		saveMap();
 		setChanged();
-		notifyObservers("print "+"Bye!");
+		if(prop.getIsGUI() == 0) notifyObservers("print "+"Bye!");
 		executor.shutdownNow();
 	}
 

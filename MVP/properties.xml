@@ -4,11 +4,14 @@
   <void property="generateMazeAlgorithm">
    <string>Growing</string>
   </void>
+  <void property="isGUI">
+   <int>1</int>
+  </void>
   <void property="numOfThreads">
    <int>99</int>
   </void>
   <void property="solveMazeAlgorithm">
-   <string>BFS</string>
+   <string>1</string>
   </void>
  </object>
 </java>

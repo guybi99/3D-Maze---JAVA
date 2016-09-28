@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import presenter.Properties;
 import algorithms.mazeGenarators.Maze3d;
 
 public interface Model {
@@ -70,4 +71,5 @@ public interface Model {
 	void saveMap();
 	String toString(int[][] arr);
 	String toString(String[] arr);
+	Properties getProperties();
 }
