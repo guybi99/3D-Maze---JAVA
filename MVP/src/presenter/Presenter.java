@@ -6,6 +6,10 @@ import java.util.Observer;
 import model.Model;
 import view.View;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public class Presenter implements Observer {
 	private Model model;
 	private View view;

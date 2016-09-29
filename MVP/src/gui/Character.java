@@ -13,7 +13,7 @@ public class Character {
 	 * constractor
 	 */
 	public Character() {
-		this.img = new Image(null, "resources/images/ghost-character.png");
+		this.img = new Image(null, "resources/images/player.png");
 	}
 
 	/**

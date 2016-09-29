@@ -32,6 +32,10 @@ import algorithms.search.Searcher;
 import algorithms.search.Solution;
 import algorithms.search.State;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public class MyModel extends Observable implements Model {
 	
 	private ExecutorService executor;

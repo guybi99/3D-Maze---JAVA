@@ -4,6 +4,10 @@ import java.beans.XMLDecoder;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public class LoaderProperties {
 	private static LoaderProperties instance;
 	private Properties properties;

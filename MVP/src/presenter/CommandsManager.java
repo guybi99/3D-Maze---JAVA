@@ -11,6 +11,10 @@ import presenter.Command;
 import model.Model;
 import view.View;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public class CommandsManager {
 	private Model m;
 	private View view;

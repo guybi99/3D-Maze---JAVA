@@ -7,6 +7,10 @@ import java.io.FileOutputStream;
 import presenter.Properties;
 import algorithms.mazeGenarators.Maze3d;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public interface Model {
 	/**
 	 * Maze getter from hash map

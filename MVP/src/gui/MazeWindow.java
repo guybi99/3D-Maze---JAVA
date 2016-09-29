@@ -34,6 +34,10 @@ import view.View;
 import algorithms.mazeGenarators.Maze3d;
 import algorithms.mazeGenarators.Position;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public class MazeWindow extends BasicWindow implements View {
 
 //	private MazeDisplay mazeDisplay;
@@ -270,7 +274,7 @@ public class MazeWindow extends BasicWindow implements View {
 		generateWindowShell.setText("Generate maze window");
 		generateWindowShell.setLayout(new GridLayout(2, false));
 		generateWindowShell.setSize(215, 215);
-		generateWindowShell.setBackgroundImage(new Image(null, "resources/images/backgroundSmall.png"));
+		generateWindowShell.setBackgroundImage(new Image(null, "resources/images/sb.gif"));
 		generateWindowShell.setBackgroundMode(SWT.INHERIT_DEFAULT);
 		
 		// Open in center of screen

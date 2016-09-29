@@ -2,6 +2,10 @@ package presenter;
 
 import java.io.Serializable;
 
+/**
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
+ */
 public class Properties implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private int numOfThreads;

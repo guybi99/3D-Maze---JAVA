@@ -8,13 +8,14 @@ import algorithms.mazeGenarators.Position;
 
 public class BFSTest<T> {
 
-	int[][][] maze;
-	Position startPosition;
 	Position goalPosition;
 	Maze3d maze3d;
-	Searcher<Position> bfs;
+	int[][][] maze;
+	Position startPosition;
 	SearchableAdapter searchable;
 	Solution<Position> sol;
+	Searcher<Position> bfs;
+	
 	
 	public BFSTest(){
 		maze = new int[][][] {
@@ -66,31 +67,23 @@ public class BFSTest<T> {
 		bfs = new BFS<Position>();
 		searchable = new SearchableAdapter(maze3d);
 		sol = bfs.search(searchable);
-		
-//		for(State<Position> a : sol.getStates())
-//			System.out.println(a.toString());
-//		
-//		System.out.println(sol.getStates().size());
 	}
 	
 	@Test
-	public void shouldReturnCountOfPathFromStartToFinishPosition() {
+	public void checkSizeOfSolution() {
 		
 		assertEquals(4, sol.getStates().size());
 	}
-	
 	@Test
-	public void shouldReturnTheGoalStateOfTheMaze() {
-		assertEquals(goalPosition, sol.getStates().get(sol.getStates().size()-1).getValue());
-	}
-	
-	@Test
-	public void shouldReturnTheStartStateOfTheMaze() {
+	public void checkStartIsFirst() {
 		assertEquals(startPosition, sol.getStates().get(0).getValue());
 	}
-
 	@Test
-	public void checkIfTheEvaluatedNumberOfNodesOfTheSolutionIsValid() {
+	public void checkGoalStateIsLast() {
+		assertEquals(goalPosition, sol.getStates().get(sol.getStates().size()-1).getValue());
+	}
+	@Test
+	public void testEvaluted() {
 		assertEquals(true, bfs.getNumberOfNodesEvaluated() >= sol.getStates().size());
 	}
 

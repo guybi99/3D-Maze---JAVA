@@ -28,18 +28,13 @@ public class MazeDisplay extends Canvas {
 	private int whichFloorAmI;
 	private int[][] crossSection = { {0}, {0} };
 	private Character character;
-	final private Image imgGoal = new Image(null,"resources/images/apple.png") ;
-	final private Image imgWinner = new Image(null,"resources/images/winner.gif");
-//	final private Image imgUp = new Image(null, "resources/images/up.gif");
-//	final private Image imgDown = new Image(null, "resources/images/down.gif");
-	final private Image imgWall = new Image(null, "resources/images/wall.png");
-//	final private Image imgBackwardInMaze = new Image (null, "resources/images/backwardInMaze.png");
+	final private Image imgGoal = new Image(null,"resources/images/goal.png") ;
+	final private Image imgWinner = new Image(null,"resources/images/winner.jpg");
+	final private Image imgWall = new Image(null, "resources/images/wall.jpg");
 	private boolean drawMeAHint;
 	private Position hintPosition;
 	private boolean winner;
 	private Position goalPosition;
-	private List<Point> downHint;
-	private List<Point> upHint;
 	private Maze3d maze;
 	private MazeWindow mazeWindow;
 	
@@ -56,8 +51,6 @@ public class MazeDisplay extends Canvas {
 		drawMeAHint = false;
 		winner = false;
 		goalPosition = new Position(-1, -1, -1);
-		upHint = new ArrayList<Point>();
-		downHint = new ArrayList<Point>();
 
 		// draw the maze
 		addPaintListener(new PaintListener() {
@@ -227,8 +220,6 @@ public class MazeDisplay extends Canvas {
 	 */
 	public void setCrossSection(int[][] crossSection, List<Point> upHint, List<Point> downHint) {
 		this.crossSection = crossSection;
-		this.upHint = upHint;
-		this.downHint = downHint;
 		redrawMe();
 	}
 
