@@ -83,7 +83,6 @@ public class MyView extends AbstractView {
 
 	@Override
 	public void notifyMazeIsReady(String name) {
-		// TODO Auto-generated method stub
 		
 	}
 

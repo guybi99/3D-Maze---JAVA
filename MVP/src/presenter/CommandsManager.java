@@ -139,7 +139,6 @@ public class CommandsManager {
 			try {
 				m.loadM3d(new FileInputStream(st[0]), st[1]);
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

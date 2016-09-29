@@ -39,7 +39,15 @@ public class Properties implements Serializable {
 		return isGUI;
 	}
 
-	public void setIsGUI(int isGUI) {
-		this.isGUI = isGUI;
+	public void setIsGUI(int i) {
+		this.isGUI = i;
 	}
+
+	@Override
+	public String toString() {
+		return "Properties [numOfThreads=" + numOfThreads + ", generateMazeAlgorithm=" + generateMazeAlgorithm
+				+ ", solveMazeAlgorithm=" + solveMazeAlgorithm + ", isGUI=" + isGUI + "]";
+	}
+	
+	
 }

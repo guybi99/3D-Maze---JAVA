@@ -2,42 +2,29 @@ package gui;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import algorithms.mazeGenarators.Position;
+
 /**
- * class Character
+ * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
+ *
  */
 public class Character {
-	private Position pos;
-	private Image img;
+	private Position position;
+	private Image image;
 	
-	/**
-	 * constractor
-	 */
 	public Character() {
-		this.img = new Image(null, "resources/images/player.png");
+		this.image = new Image(null, "resources/images/player.png");
 	}
 
-	/**
-	 * getPos
-	 */
-	public Position getPos() {
-		return pos;
+	public Position getPosistion() {
+		return position;
 	}
 
-	/**
-	 * setPos
-	 * @param pos, Position
-	 */
-	public void setPos(Position pos) {
-		this.pos = pos;
+	public void setPosistion(Position position) {
+		this.position = position;
 	}
-	/**
-	 *this method draw the image
-	 *@param cellWidth, int
-	 *@param cellHeight, int
-	 *@param gc, GC
-	 */
-	public void draw(int cellWidth, int cellHeight, GC gc) {
-		gc.drawImage(img, 0, 0, img.getBounds().width, img.getBounds().height, cellWidth * pos.getColm(), cellHeight * pos.getRow(), cellWidth, cellHeight);
+	
+	public void drawing(int cellWidth, int cellHeight, GC gc) {
+		gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, cellWidth * position.getColm(), cellHeight * position.getRow(), cellWidth, cellHeight);
 	}
 	
 }

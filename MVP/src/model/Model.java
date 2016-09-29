@@ -71,9 +71,18 @@ public interface Model {
 	 * exit from the project
 	 */
 	public void exit();
+	/**
+	 * Load map of objects
+	 */
 	void loadMap();
+	/**
+	 * Save map of objects
+	 */
 	void saveMap();
 	String toString(int[][] arr);
 	String toString(String[] arr);
+	/**
+	 * @return Properties This returns the properties object
+	 */
 	Properties getProperties();
 }

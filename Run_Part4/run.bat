@@ -1,0 +1,1 @@
+java -classpath "swt.win32.64.jar;mvp.29.09.jar;my_algorithms.29.09.jar" boot.Run
