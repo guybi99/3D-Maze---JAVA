@@ -37,7 +37,7 @@ public class Run {
 		
 		
 		model.addObserver(presenter);
-		view.addObserver(presenter);
+		view.addObserver1(presenter);
 				
 		view.start();
 	}

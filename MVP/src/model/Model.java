@@ -3,9 +3,12 @@ package model;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Map;
 
 import presenter.Properties;
 import algorithms.mazeGenarators.Maze3d;
+import algorithms.mazeGenarators.Position;
+import algorithms.search.Solution;
 
 /**
  * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
@@ -85,4 +88,5 @@ public interface Model {
 	 * @return Properties This returns the properties object
 	 */
 	Properties getProperties();
+	Map<String, Solution<Position>> getSol_hm();
 }

@@ -101,12 +101,20 @@ public class MazeMenu {
 			Shell child = new Shell(p);
 			child.setSize(200, 200);
 			
-			Text levels_text = new Text(child, SWT.BORDER);
-			levels_text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-			levels_text.setText("1");
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					MessageBox msg = new MessageBox(child, SWT.ICON_INFORMATION);
+					msg.setMessage(prop.toString());
+					msg.open();
+				}
+			});
 			
-			child.setText("Properties");
-			child.open();
+//			Text levels_text = new Text(child, SWT.BORDER);
+//			levels_text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+//			levels_text.setText("1");
+			
+//			child.setText("Properties");
+//			child.open();
 		}
 	}
 }

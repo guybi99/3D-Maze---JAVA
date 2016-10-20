@@ -1,6 +1,8 @@
 package gui;
 import java.util.List;
+
 import algorithms.mazeGenarators.Position;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -12,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+
 import algorithms.mazeGenarators.Maze3d;
 
 /**
@@ -32,6 +35,8 @@ public class MazeDisplay extends Canvas {
 	private Position hint_pos;
 	private boolean winner;
 	private Position goalPosition;
+	
+
 	private Maze3d maze3d;
 	private MazeWindow mWindow;
 
@@ -47,6 +52,10 @@ public class MazeDisplay extends Canvas {
 		this.goalPosition = g;
 	}
 	
+	public Position getGoal() {
+		return goalPosition;
+	}
+	
 	public void drawHint(Position hintPos) {
 		this.is_hint_draw = true;
 		this.hint_pos = hintPos;
@@ -59,6 +68,7 @@ public class MazeDisplay extends Canvas {
 			public void run() {
 				setEnabled(true);
 				redraw();
+				update();
 			}
 		});
 	}
@@ -69,17 +79,14 @@ public class MazeDisplay extends Canvas {
 
 	public void setCross(int[][] c, List<Point> upHint, List<Point> downHint) {
 		this.cross = c;
-		redrawMe();
 	}
 
 	public void setBallPosition(Position p) {
 		this.character.setPosistion(p);
-		redrawMe();
 	}
 
 	public void moveCharacter(Position pos) {
 		this.character.setPosistion(pos);
-		redrawMe();
 	}
 
 	public Position getMovePosition(Position pos, String direction){
@@ -131,17 +138,24 @@ public class MazeDisplay extends Canvas {
 			return false;		
 	}
 	
-	public boolean moveBall(String direction) {
+	public Position moveBall(String direction) {
 		if (possibleMoveFromPosition(character.getPosistion(), direction)) {
 			Position nextPos = getMovePosition(character.getPosistion(), direction);
 			int[][] crossSection = maze3d.getCrossSectionByZ(nextPos.getLevel());
 			setCross(crossSection, null, null);
 			setBallPosition(nextPos);
-			return true;			
+			return nextPos;			
 		}else
-			return false;
+			return null;
 	}
-
+	
+	public Position moveBall(Position pos) {
+		int[][] crossSection = maze3d.getCrossSectionByZ(pos.getLevel());
+		setCross(crossSection, null, null);
+		setBallPosition(pos);
+		return pos;			
+	}
+	
 	public void messageBox(String str) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {

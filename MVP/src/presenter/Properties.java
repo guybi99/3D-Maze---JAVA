@@ -45,8 +45,8 @@ public class Properties implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Properties [numOfThreads=" + numOfThreads + ", generateMazeAlgorithm=" + generateMazeAlgorithm
-				+ ", solveMazeAlgorithm=" + solveMazeAlgorithm + ", isGUI=" + isGUI + "]";
+		return "Properties\n\n numOfThreads = " + numOfThreads + "\n generateMazeAlgorithm = " + generateMazeAlgorithm
+				+ "\n solveMazeAlgorithm = " + solveMazeAlgorithm + "\n isGUI = " + isGUI + "\n";
 	}
 	
 	

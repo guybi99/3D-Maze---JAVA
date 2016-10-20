@@ -1,5 +1,6 @@
 package view;
 
+import presenter.Presenter;
 import presenter.Properties;
 import algorithms.mazeGenarators.Maze3d;
 
@@ -32,4 +33,5 @@ public interface View {
 	 * @param name This is the maze name
 	 */
 	void notifyMazeIsReady(String name);
+	void addObserver1(Presenter pre);
 }

@@ -1,10 +1,14 @@
 package gui;
 
 import io.MyDecompressorInputStream;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.Observable;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
@@ -26,9 +30,13 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+
 import presenter.Properties;
 import view.View;
 import algorithms.mazeGenarators.Maze3d;
+import algorithms.mazeGenarators.Position;
+import algorithms.search.Solution;
+import algorithms.search.State;
 
 /**
  * @author Tal Mishaan 203908652 And Guy Binyamin 200958098
@@ -39,6 +47,7 @@ public class MazeWindow extends BasicWindow implements View {
 	final private Image imgbg = new Image(null, "resources/images/bg.jpg");
 	public Text text = null;
 	private Properties prop;
+	private Label pos_label;
 	
 	public MazeWindow(Properties p) {
 		this.prop = p;
@@ -72,6 +81,11 @@ public class MazeWindow extends BasicWindow implements View {
 				exit();
 			}
 		});
+		
+		pos_label = new Label(shell, SWT.VERTICAL);
+		pos_label.setBackground(display.getSystemColor(SWT.COLOR_GRAY));
+		pos_label.setText("Position: <None>");
+		pos_label.setLayoutData(new GridData(SWT.BORDER, SWT.BORDER, true, false, 2, 1));
 		
 		RowLayout rowLay = new RowLayout(SWT.VERTICAL);
 		Composite btnG = new Composite(shell, SWT.BORDER);
@@ -119,11 +133,25 @@ public class MazeWindow extends BasicWindow implements View {
 			public void widgetDefaultSelected(SelectionEvent arg0) {}
 		});
 		
+		Button hintBTN = new Button(btnG, SWT.PUSH);
+		hintBTN.setText("Hint");
+		
+		hintBTN.addSelectionListener(new SelectionListener() {
+			
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				showMsg("The goal is at: "+mDisplay.getGoal().toString());
+			}
+			
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {}
+		});
+		
 		mDisplay = new MazeDisplay(shell, SWT.NONE,this,null);
 		mDisplay.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		mDisplay.setFocus();
 	}
-
+	
 	@Override
 	public void notifyMazeIsReady(String name) {
 
@@ -160,6 +188,8 @@ public class MazeWindow extends BasicWindow implements View {
 	public void showMaze(String mazeByteArrString) {
 		
 		setChanged();
+		notifyObservers("solve tal123 BFS");
+		setChanged();
 		notifyObservers("save_maze " + "tal123 tal123");
 		
 		MyDecompressorInputStream in = null;
@@ -189,11 +219,12 @@ public class MazeWindow extends BasicWindow implements View {
 		Maze3d maze3d=new Maze3d(b);
 		mDisplay.setMaze3d(maze3d);
 		mDisplay.setBallPosition(maze3d.getStartPosition());
+		pos_label.setText("Positon: "+maze3d.getStartPosition().toString());
 		int[][] crossSection = maze3d.getCrossSectionByZ(maze3d.getStartPosition().getLevel());
 		mDisplay.setCross(crossSection, null, null);
 		mDisplay.setGoalPosition(maze3d.getGoalPosition());
 		mDisplay.setMazeName("tal123");
-
+		mDisplay.redrawMe();
 	}
 	
 	protected void showGenerate() {
@@ -248,7 +279,7 @@ public class MazeWindow extends BasicWindow implements View {
 		});
 
 		new_shell.open();
-
+		
 		mDisplay.addKeyListener(new KeyListener() {
 
 			@Override
@@ -281,8 +312,9 @@ public class MazeWindow extends BasicWindow implements View {
 					break;
 				}
 				if (direction != null) {
-					mDisplay.moveBall(direction);
+					Position pos = mDisplay.moveBall(direction);
 					mDisplay.redrawMe();
+					pos_label.setText("Positon: "+pos.toString());
 				}
 			}
 		});
@@ -290,7 +322,23 @@ public class MazeWindow extends BasicWindow implements View {
 	
 	public void solveMaze(String name){
 		setChanged();
-		notifyObservers("solve "+name);
+		notifyObservers("solve "+name+" BFS");
+//		setChanged();
+//		notifyObservers("display_solution" + " " + name);
+		
+		List<State<Position>> a = p.getSolution(name).getStates();
+		
+		for( State<Position> pos : a){
+			mDisplay.moveBall(pos.getValue());
+			mDisplay.redrawMe();
+			pos_label.setText("Positon: "+pos.toString());
+			
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override

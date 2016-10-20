@@ -86,7 +86,13 @@ public class MyModel extends Observable implements Model {
 			}
 			
 		});
+		
+		this.solveM3d(name, "BFS");
 			
+	}
+	
+	public Map<String, Solution<Position>> getSol_hm() {
+		return sol_hm;
 	}
 	
 	public Properties getProperties() {

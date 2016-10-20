@@ -1,8 +1,12 @@
 package presenter;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+
+import algorithms.mazeGenarators.Position;
+import algorithms.search.Solution;
 import model.Model;
 import view.View;
 
@@ -22,6 +26,11 @@ public class Presenter implements Observer {
 			
 		commandsManager = new CommandsManager(model, view);
 		commands = commandsManager.getCommandsMap();
+	}
+	
+	
+	public Solution<Position> getSolution(String name) {
+		return model.getSol_hm().get(name);
 	}
 
 	@Override
